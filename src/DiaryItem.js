@@ -10,7 +10,7 @@ const DiaryItem = ({ author, content, emotion, created_date, id }) => {
         <br />
         <span>날짜:{new Date(created_date).toLocaleString()}</span>
       </div>
-      <div className="content">내용:{content}</div>
+      <div className="content">{content}</div>
     </div>
   );
 };

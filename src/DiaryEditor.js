@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ onCreate }) => {
   const [state, setState] = useState({
     author: "",
     content: "",
     emotion: 1,
   });
-  const handleChangeState = (e) => {
+  const handleChangeState = e => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
@@ -24,8 +24,9 @@ const DiaryEditor = () => {
       contentInput.current.focus();
       return;
     }
-
+    onCreate(state.author, state.content, state.emotion);
     alert("저장됨!");
+    setState({ author: "", content: "", emotion: 1 });
   };
 
   return (
